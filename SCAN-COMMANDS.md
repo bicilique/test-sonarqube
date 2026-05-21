@@ -80,6 +80,26 @@ docker run --rm `
   -D"sonar.exclusions=node_modules/**,src/public/uploads/**"
 ```
 
+## First Scan with Trivy
+
+### Linux/MacOS
+
+```bash
+docker run --rm \
+  -v "$PWD:/work" \
+  -w /work \
+  aquasec/trivy fs .
+```
+
+### Windowd
+
+```bash
+docker run --rm `
+  -v "${PWD}:/work" `
+  -w /work `
+  aquasec/trivy fs .
+```
+
 ## Linux Note
 
 If you are not using Docker Desktop and `host.docker.internal` is unavailable, add this option to the Docker commands that must reach services on your host:
