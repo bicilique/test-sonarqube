@@ -47,6 +47,39 @@ docker run --rm \
   -r zap-report.html
 ```
 
+
+
+## First Scan with SonarQube Cli
+
+### Linux/MacOS
+
+```bash
+docker run --rm \
+  --network host \
+  -e SONAR_HOST_URL="http://localhost:9000" \
+  -e SONAR_TOKEN="YOUR_TOKEN_HERE" \
+  -v "$PWD:/usr/src" \
+  sonarsource/sonar-scanner-cli \
+  -D"sonar.projectKey=local-project" \
+  -D"sonar.sources=src" \
+  -D"sonar.tests=tests" \
+  -D"sonar.exclusions=node_modules/**,src/public/uploads/**"
+```
+
+#### Windows
+
+```bash
+docker run --rm `
+  -e SONAR_HOST_URL="http://host.docker.internal:9000" `
+  -e SONAR_TOKEN="$TOKEN" `
+  -v "${PWD}:/usr/src" `
+  sonarsource/sonar-scanner-cli `
+  -D"sonar.projectKey=$PROJECT_KEY" `
+  -D"sonar.sources=src" `
+  -D"sonar.tests=tests" `
+  -D"sonar.exclusions=node_modules/**,src/public/uploads/**"
+```
+
 ## Linux Note
 
 If you are not using Docker Desktop and `host.docker.internal` is unavailable, add this option to the Docker commands that must reach services on your host:
