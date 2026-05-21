@@ -302,27 +302,3 @@ reports/zap-auth.md
 ```
 
 ---
-
-## Expected ZAP Authenticated Results
-
-### Expected on `lesson/01-vulnerable`
-
-You may see findings such as:
-
-```text
-Missing security headers
-Cookie No HttpOnly Flag
-Cookie Without Secure Flag
-Anti-CSRF warnings on admin forms
-```
-
-### Expected on `lesson/04-dast-fixes` and `main`
-
-You should see improvements such as:
-
-```text
-Many header findings reduced
-Cookie No HttpOnly Flag should disappear
-Cookie Without Secure Flag may still remain locally on HTTP
-Anti-CSRF warnings may still remain
-```
