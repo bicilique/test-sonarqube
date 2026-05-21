@@ -88,7 +88,10 @@ docker run --rm `
 docker run --rm \
   -v "$PWD:/work" \
   -w /work \
-  aquasec/trivy fs .
+  aquasec/trivy fs \
+  --format json \
+  --output trivy-report.json \
+  .
 ```
 
 ### Windowd
@@ -97,7 +100,10 @@ docker run --rm \
 docker run --rm `
   -v "${PWD}:/work" `
   -w /work `
-  aquasec/trivy fs .
+  aquasec/trivy fs `
+  --format json `
+  --output trivy-report.json `
+  .
 ```
 
 ## Linux Note
